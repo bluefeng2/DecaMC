@@ -6,37 +6,37 @@ var hoptou;
 var perfinli;
 var market;
 
-await fetch("/questions/entrepenurship.json" ).then(response => response.json())
+await fetch("/DecaMC/questions/entrepenurship.json" ).then(response => response.json())
  .then(data => {
     entrepeur =data ;
  }); 
 
- await fetch("/questions/bac.json" ).then(response => response.json())
+ await fetch("/DecaMC/questions/bac.json" ).then(response => response.json())
  .then(data => {
     bac =data ;
  }); 
 
- await fetch("/questions/bma.json" ).then(response => response.json())
+ await fetch("/DecaMC/questions/bma.json" ).then(response => response.json())
  .then(data => {
     bma =data ;
  }); 
 
- await fetch("/questions/finance.json" ).then(response => response.json())
+ await fetch("/DecaMC/questions/finance.json" ).then(response => response.json())
  .then(data => {
     finance =data ;
  }); 
 
- await fetch("/questions/hoptou.json" ).then(response => response.json())
+ await fetch("/DecaMC/questions/hoptou.json" ).then(response => response.json())
  .then(data => {
     hoptou =data ;
  }); 
 
- await fetch("/questions/perfinli.json" ).then(response => response.json())
+ await fetch("/DecaMC/questions/perfinli.json" ).then(response => response.json())
  .then(data => {
     perfinli =data ;
  }); 
 
- await fetch("/questions/market.json" ).then(response => response.json())
+ await fetch("/DecaMC/questions/market.json" ).then(response => response.json())
  .then(data => {
     market =data ;
  }); 
