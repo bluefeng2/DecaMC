@@ -213,41 +213,24 @@ function aiHelpButton(onOff) {
 }
 aiHelpButton(false);
 
-const llmUrl = "https://api.groq.com/openai/v1/chat/completions";
-const apiKey = "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";
+
 function getAiHelp() {
   document.getElementById('aihelp').showModal();
   document.getElementById("aicontent").innerHTML = "Loading...";
   var question = document.getElementById("question").innerHTML + "\n" +  document.getElementById("la1").innerHTML + "\n" +  document.getElementById("la2").innerHTML + "\n" +  document.getElementById("la3").innerHTML + "\n" +  document.getElementById("la4").innerHTML;
-  var query = 'Answer this question:\n\n'+question+'\n\nProvide an in-depth explanation of your answer. Include the question in your answer and make it less than 200 words. Make sure to include why this answer is correct and the others are wrong.';
+  var query = 'Answer this question:\n\n'+question+'\n\nProvide an in-depth explanation of your answer. Include the question in your answer and make it less than 200 words. Make sure to include why this answer is correct and the others are wrong Do not add any text not pertaining to the answer.';
   
-  fetch(llmUrl, {
+  fetch("http://127.0.0.1:5167/getHelp", {
     method: "POST",
-    headers: {
-      "Authorization": `Bearer ${apiKey}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      "messages": [
-        {
-          "role": "user",
-          "content": query
-        }
-      ],
-      "model": "llama3-8b-8192"
-    })
-  })
-    .then((response) => response.text())
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({"content": query})})
+    .then((response) => response.text()) 
     .then((text) => setDialog(text));
-  
-
     }
 
-function setDialog(text) {
-  var content = JSON.parse(text)["choices"][0]["message"]["content"];
-  
+function setDialog(content) {  
   content = content.replaceAll("\n", "<br>");
-  document.getElementById("aicontent").innerHTML = content;
+  document.getElementById("aicontent").innerHTML = marked.parse(content);
 }
 
 document.getElementById('aiHelpButton').onclick = function() {

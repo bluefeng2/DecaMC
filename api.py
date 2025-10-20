@@ -2,6 +2,7 @@ from flask import Flask, request
 import sqlite3
 from sqlite3 import Error
 from flask_cors import CORS, cross_origin
+import requests
 
 def create_connection(path):
     connection = None
@@ -130,5 +131,30 @@ def getInfo():
 
     return get_info(content["username"])
 
+llmUrl = "https://api.groq.com/openai/v1/chat/completions"
+
+from groq import Groq
+
+client = Groq(
+    api_key="api key",
+)
+
+@app.route('/getHelp', methods = ['POST'])
+def getHelp():
+    content = request.json
+    
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": content['content'],
+            }
+        ],
+        model="groq/compound-mini",
+    )
+
+    print(chat_completion.choices[0].message.content)
+
+    return chat_completion.choices[0].message.content
 
 app.run(host="0.0.0.0", port=5167)
