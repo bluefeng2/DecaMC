@@ -220,7 +220,7 @@ function getAiHelp() {
   var question = document.getElementById("question").innerHTML + "\n" +  document.getElementById("la1").innerHTML + "\n" +  document.getElementById("la2").innerHTML + "\n" +  document.getElementById("la3").innerHTML + "\n" +  document.getElementById("la4").innerHTML;
   var query = 'Answer this question:\n\n'+question+'\n\nProvide an in-depth explanation of your answer. Include the question in your answer and make it less than 200 words. Make sure to include why this answer is correct and the others are wrong Do not add any text not pertaining to the answer.';
   
-  fetch("http://127.0.0.1:5167/getHelp", {
+  fetch("http://fakesneakysnake.pythonanywhere.com/getHelp", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({"content": query})})
