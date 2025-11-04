@@ -224,7 +224,7 @@ function getAiHelp() {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({"content": query}),
-  headers: {"Content-type": "application/json; charset=UTF-8"})
+  headers: {"Content-type": "application/json; charset=UTF-8"}})
     .then((response) => response.text()) 
     .then((text) => setDialog(text));
     }
