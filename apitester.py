@@ -1,15 +1,12 @@
 import requests
 import os
+import json
 
-url = "https://api.groq.com/openai/v1/models"
+url = "https://fakesneakysnake.pythonanywhere.com/getHelp"
 
-headers = {
-    "Authorization": f"Bearer ",
-    "Content-Type": "application/json"
-}
 
-response = requests.get(url, headers=headers)
 
-print()
+response = requests.post(url, json = {"content": "hi"})
 
-[print(x["id"]) for x in response.json()["data"]]
+print(response.content)
+
