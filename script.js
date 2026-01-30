@@ -6,7 +6,7 @@ var hoptou;
 var perfinli;
 var market;
 
-/* use this for deploy
+
 await fetch("/DecaMC/questions/entrepenurship.json" ).then(response => response.json())
  .then(data => {
     entrepeur =data ;
@@ -41,7 +41,7 @@ await fetch("/DecaMC/questions/entrepenurship.json" ).then(response => response.
  .then(data => {
     market =data ;
  }); 
-*/
+/* use this for test
 
 await fetch("/questions/entrepenurship.json" ).then(response => response.json())
  .then(data => {
@@ -76,7 +76,7 @@ await fetch("/questions/entrepenurship.json" ).then(response => response.json())
  await fetch("/questions/market.json" ).then(response => response.json())
  .then(data => {
     market =data ;
- }); 
+ }); */
 
  document.getElementById('showStats').addEventListener('click', () => {
     const table = document.getElementById('progressTable');
