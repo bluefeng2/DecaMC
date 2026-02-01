@@ -161,7 +161,7 @@ function getToUpdate(correct) {
   var question = document.getElementById("question").innerHTML + "\n" +  document.getElementById("la1").innerHTML + "\n" +  document.getElementById("la2").innerHTML + "\n" +  document.getElementById("la3").innerHTML + "\n" +  document.getElementById("la4").innerHTML;
   var query = 'What category is this question in? \n\n' + question + "\n\n Here are your options: Business Law, Communication Skills, Customer relations, Economics, Emotional intelligence, Entrepreneurship, Financial analysis, Hr management, Marketing, Info management, Operations, Professional development, Strategic management, Product service management, Channel management, Marketing info management, Market planning, Pricing, Promotion, Selling, other. \n\n Do not write anything else, other than one of those categories, in the exact same spelling, exact same case, with no extra characters. Make your choice well thought out and accurate.";
 
-  fetch("https://fakesneakysnake.pythonanywhere.com/getHelp", {
+  fetch("https://fakesneakysnake.pythonanywhere.com/getHelp2", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({"content": query}),
